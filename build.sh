@@ -79,14 +79,14 @@ build_jar(){
 
 build_image(){
   # Build docker image and push to registry
-  if docker build --tag "$REGISTRY_URL/$REGISTRY_ORG/$PLUGIN:$VERSION" .; then
-    if docker image push "$REGISTRY_URL/$REGISTRY_ORG/$PLUGIN:$VERSION"; then
-      echo "Build and push completed: $REGISTRY_URL/$REGISTRY_ORG/$PLUGIN:$VERSION"
+  if docker build --tag "$LOCAL_REGISTRY_URL/$REGISTRY_ORG/$PLUGIN:$VERSION" .; then
+    if docker image push "$LOCAL_REGISTRY_URL/$REGISTRY_ORG/$PLUGIN:$VERSION"; then
+      echo "Build and push completed: $LOCAL_REGISTRY_URL/$REGISTRY_ORG/$PLUGIN:$VERSION"
     else
-      echo "Push failed for $REGISTRY_URL/$REGISTRY_ORG/$PLUGIN:$VERSION"
+      echo "Push failed for $LOCAL_REGISTRY_URL/$REGISTRY_ORG/$PLUGIN:$VERSION"
     fi
   else
-    echo "Build failed for $REGISTRY_URL/$REGISTRY_ORG/$PLUGIN:$VERSION"
+    echo "Build failed for $LOCAL_REGISTRY_URL/$REGISTRY_ORG/$PLUGIN:$VERSION"
   fi
 }
 

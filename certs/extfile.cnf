@@ -1,0 +1,16 @@
+[ req ]
+prompt = no
+distinguished_name = dn
+x509_extensions = x509_ext
+
+[ dn ]
+CN = exemple.com
+emailAddress = ssl@exemple.com
+O = Company
+OU = Department
+L = Town
+ST = State
+C = EN
+
+[ x509_ext ]
+subjectAltName = IP: 10.0.2.2 
